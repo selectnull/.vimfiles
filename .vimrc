@@ -17,3 +17,5 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 let g:user_zen_leader_key = '<c-k>'
 
+:filetype plugin on
+
