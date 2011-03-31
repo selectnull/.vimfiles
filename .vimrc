@@ -16,6 +16,7 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 :set hidden
 
 let g:user_zen_leader_key = '<c-k>'
+map <c-o> :NERDTreeToggle<CR>
 
 :filetype plugin on
 
