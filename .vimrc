@@ -20,3 +20,6 @@ map <c-o> :NERDTreeToggle<CR>
 
 :filetype plugin on
 
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
+
