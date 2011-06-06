@@ -1,4 +1,6 @@
 :set guioptions-=T
+:set guioptions-=m
+
 :set ai ts=4 sts=4 et sw=4
 :colorscheme desert
 :set lines=56 columns=132
