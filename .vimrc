@@ -2,7 +2,6 @@
 :set guioptions-=m
 
 :set ai ts=4 sts=4 et sw=4
-:colorscheme desert
 " Always cd to the current file's directory
 autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
