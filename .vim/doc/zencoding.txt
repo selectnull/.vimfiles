@@ -29,11 +29,13 @@ Tutorial               |zencoding-tutorial|
  11. Toggle Comment                 |zencoding-toggle-comment|
  12. Make anchor from URL           |zencoding-make-anchor-url|
  13. Make quoted text from URL      |zencoding-quoted-text-url|
+ 14. Code Pretty                    |zencoding-code-pretty|
 Customize             |zencoding-customize|
   1. Key Mappings                   |zencoding-customize-keymappings|
   2. Indent Size                    |zencoding-indent-size|
   3. Define Tag's Behavior          |zencoding-define-tags-behavior|
   4. Complete Tag                   |zencoding-complete-tag|
+Links                 |zencoding-links|
 ToDo                  |zencoding-todo|
 
 ==============================================================================
@@ -64,7 +66,7 @@ Read more about current Zen Coding syntax
 
 Abbreviation engine has a modular structure which allows you to expand
 abbreviations into different languages. Zen Coding currently supports CSS,
-HTML, XML/XSL and HAML languages via filters.
+HTML, XML/XSL and HAML, Slim languages via filters.
 
 ==============================================================================
 INSTALL                                                      *zencoding-install*
@@ -146,7 +148,7 @@ You should copy this section and create new buffer, paste and write as
       <li class="list3"></li>
   </ul>
 <
-  If cursor is at '*', |<C-Y>d| select from next letter of <ul> to previous
+  If cursor is at '*', |<C-Y>D| select from next letter of <ul> to previous
   letter of </ul>.
   If cursor is at first of <li>, it select <li class="list1"></li>.
 
@@ -195,7 +197,8 @@ You should copy this section and create new buffer, paste and write as
       <li class="list3"></li>
   </ul>
 <
-  If you select part of line include <li> and type |J|, it will be following.
+  If you select part of line include <li> and type |<C-Y>m|, it will be
+  following.
 >
   <ul>
       <li class="list1"></li><li class="list2"></li><li class="list3"></li>
@@ -277,6 +280,24 @@ You should copy this section and create new buffer, paste and write as
       <p>How does it work? Get up and running in seconds by forking a project, pushing an existing repository...</p>
       <cite>http://github.com/</cite>
   </blockquote>
+<
+14. Code Pretty                                   *zencoding-code-pretty* *<C-Y>c*
+
+  Select code block, for example select following code from "int main()".
+>
+  <p>Writing in C language</p>
+
+  int main() {
+    puts("hello world");
+  }
+<
+  Type |<C-Y>c|
+>
+  <p>Writing in C language</p>
+
+  <span class="Type">int</span>&nbsp;main() {<br />
+  &nbsp;&nbsp;puts(<span class="Constant">&quot;hello world&quot;</span>);<br />
+  }<br />
 <
 ==============================================================================
 CUSTOMIZE                                                  *zencoding-customize*
@@ -368,10 +389,35 @@ CUSTOMIZE                                                  *zencoding-customize*
 <
 4. Complete Tag                                         *zencoding-complete-tag*
 
-  If you want to complete tags using |ominifunc| then add this.
+  If you want to complete tags using |omnifunc| then add this.
 >
   let g:use_zen_complete_tag = 1
 <
+==============================================================================
+LINKS                                                          *zencoding-links*
+
+zen-coding official site:
+  http://code.google.com/p/zen-coding/
+
+zencoding.vim:
+  http://mattn.github.com/zencoding-vim
+
+development repository:
+  https://github.com/mattn/zencoding-vim
+
+my blog posts about zencoding-vim:
+  http://mattn.kaoriya.net/software/vim/20100222103327.htm
+  http://mattn.kaoriya.net/software/vim/20100306021632.htm
+
+japanese blog posts about zencoding-vim:
+  http://d.hatena.ne.jp/idesaku/20100424/1272092255
+  http://d.hatena.ne.jp/griefworker/20110118/vim_zen_coding
+  http://d.hatena.ne.jp/sakurako_s/20110126/1295988873
+  http://looxu.blogspot.jp/2010/02/zencodingvimhtml.html
+
+tutorial traslated in chinese:
+  http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
+
 ==============================================================================
 TODO                                                            *zencoding-todo*
   * wrapping inline selected.
