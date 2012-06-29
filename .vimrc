@@ -24,3 +24,5 @@ let g:user_zen_leader_key = '<c-k>'
 
 set shortmess+=I
 
+:imap jj <Esc>
+
