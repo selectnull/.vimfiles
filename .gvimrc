@@ -1,4 +1,7 @@
 :set lines=56 columns=132
 
-:set background=dark
+" colorscheme options for gvim
+let g:molokai_original = 0
+set background=dark
+colorscheme molokai
 
