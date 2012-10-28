@@ -29,3 +29,11 @@ set shortmess+=I
 " clipboard
 set clipboard=unnamedplus
 
+" respace function sets unix line endings, removes trailing whitespace,
+" and converts TABs to spaces
+function! ReSpace()
+    :retab
+    :%s/\s\+$//
+    :set ff=unix
+endfunction
+
