@@ -26,6 +26,14 @@ set shortmess+=I
 
 :imap jj <Esc>
 
+" colorscheme options for gvim
+if $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+endif
+
+set background=dark
+colorscheme solarized
+
 " clipboard
 set clipboard=unnamedplus
 
