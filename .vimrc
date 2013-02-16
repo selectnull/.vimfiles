@@ -31,8 +31,8 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-set background=dark
-colorscheme solarized
+set background=light
+colorscheme desert
 
 " clipboard
 set clipboard=unnamedplus
@@ -41,7 +41,7 @@ set clipboard=unnamedplus
 " and converts TABs to spaces
 function! ReSpace()
     :retab
-    :%s/\s\+$//
     :set ff=unix
+    :%s/\s\+$//
 endfunction
 
