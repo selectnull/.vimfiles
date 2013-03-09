@@ -32,7 +32,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 set background=light
-colorscheme desert
+colorscheme delek
 
 " clipboard
 set clipboard=unnamedplus
