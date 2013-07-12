@@ -15,6 +15,8 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 :set incsearch
 :set hidden
 
+:syntax on
+
 let g:user_zen_leader_key = '<c-k>'
 
 :filetype plugin on
