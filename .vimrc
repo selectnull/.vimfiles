@@ -48,6 +48,10 @@ function! ReSpace()
     :%s/\s\+$//
 endfunction
 
+" the code below is taken from
+" https://github.com/scrooloose/vimfiles/blob/master/vimrc
+" and modified slightly
+
 "recalculate the tab warning flag when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 
