@@ -1,5 +1,0 @@
-syntax: glob
-.vim/.netrwhist
-.vim/.VimballRecord
-*.orig
-
