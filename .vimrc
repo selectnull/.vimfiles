@@ -17,8 +17,6 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 :syntax on
 
-let g:user_zen_leader_key = '<c-k>'
-
 :filetype plugin on
 
 :nnoremap <Tab> :bnext<CR>
