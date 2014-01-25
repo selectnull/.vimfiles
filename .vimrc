@@ -1,6 +1,8 @@
 :set guioptions-=T
 :set guioptions-=m
 
+:set mouse=a
+
 :set ai ts=4 sts=4 et sw=4
 " Always cd to the current file's directory
 autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
