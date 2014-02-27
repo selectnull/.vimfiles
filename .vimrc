@@ -17,6 +17,9 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 :set incsearch
 :set hidden
 
+" stay on the same column after buffer change
+:se nostartofline
+
 :syntax on
 
 :filetype plugin on
