@@ -29,7 +29,7 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 set shortmess+=I
 
-:imap jj <Esc>
+:imap jk <Esc>
 
 " colorscheme options for gvim
 if $COLORTERM == 'gnome-terminal'
