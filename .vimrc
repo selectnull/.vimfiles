@@ -43,6 +43,11 @@ colorscheme solarized
 " clipboard
 set clipboard=unnamedplus
 
+" CtrlP config
+let g:ctrlp_custom_ignore = {
+    \ 'file': '\v\.(so|pyc)$',
+    \ }
+
 " respace function sets unix line endings, removes trailing whitespace,
 " and converts TABs to spaces
 function! ReSpace()
