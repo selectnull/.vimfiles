@@ -23,6 +23,7 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 :syntax on
 
 :filetype plugin on
+:filetype indent on
 
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
@@ -152,3 +153,6 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
+
+" file types
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
