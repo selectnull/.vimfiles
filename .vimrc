@@ -23,7 +23,6 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 :syntax on
 
 :filetype plugin on
-:filetype indent on
 
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
