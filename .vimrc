@@ -18,7 +18,7 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 :set hidden
 
 " stay on the same column after buffer change
-:se nostartofline
+:set nostartofline
 
 :syntax on
 
