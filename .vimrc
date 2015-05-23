@@ -165,3 +165,6 @@ set laststatus=2
 
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" pathogen
+execute pathogen#infect()
