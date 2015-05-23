@@ -24,6 +24,9 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 :filetype plugin on
 
+" pathogen
+execute pathogen#infect()
+
 let mapleader=" "
 
 :nnoremap <leader>w :write<CR>
@@ -40,6 +43,8 @@ set shortmess+=I
 
 :imap jk <Esc>
 
+" set colorscheme
+"
 " colorscheme options for gvim
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
@@ -165,6 +170,3 @@ set laststatus=2
 
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" pathogen
-execute pathogen#infect()
