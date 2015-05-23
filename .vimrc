@@ -24,6 +24,15 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 
 :filetype plugin on
 
+let mapleader=" "
+
+:nnoremap <leader>w :write<CR>
+:nnoremap <leader>n :new<space>
+:nnoremap <leader>e :edit<space>
+:nnoremap <leader>d :bd<CR>
+:nnoremap <leader>q :quit<CR>
+:nnoremap <leader><tab> <C-w><C-w>
+
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
