@@ -63,6 +63,12 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(so|pyc)$',
     \ }
 
+" Syntastic config
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " respace function sets unix line endings, removes trailing whitespace,
 " and converts TABs to spaces
 function! ReSpace()
@@ -160,6 +166,11 @@ set statusline+=%*
 
 set statusline+=%#warningmsg#
 set statusline+=%{StatuslineTrailingSpaceWarning()}
+set statusline+=%*
+
+" Syntastic Check
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 set statusline+=%=      "left/right separator
