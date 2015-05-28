@@ -57,9 +57,6 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
-" clipboard
-set clipboard=unnamedplus
-
 " CtrlP config
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.git|\.hg|\.svn|htmlcov|build|_build)$',
