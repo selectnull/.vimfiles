@@ -20,6 +20,9 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 " stay on the same column after buffer change
 :set nostartofline
 
+" backspace should behave as expected
+set backspace=indent,eol,start
+
 :syntax on
 
 :filetype plugin on
