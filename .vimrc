@@ -1,3 +1,7 @@
+let mapleader=" "
+
+execute pathogen#infect()
+
 :set guioptions-=T
 :set guioptions-=m
 
