@@ -31,14 +31,24 @@ autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
 " backspace should behave as expected
 set backspace=indent,eol,start
 
+" from http://vi.stackexchange.com/a/2770
+nnoremap <silent> n n:call HighlightNext(0.1)<cr>
+nnoremap <silent> N N:call HighlightNext(0.1)<cr>
+nnoremap <silent> * *:call HighlightNext(0.1)<cr>
+nnoremap <silent> # #:call HighlightNext(0.1)<cr>
+
+function! HighlightNext (blinktime)
+    let target_pat = '\c\%#'.@/
+    let ring = matchadd('IncSearch', target_pat, 101)
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+    call matchdelete(ring)
+    redraw
+endfunction
+
 :syntax on
 
 :filetype plugin on
-
-" pathogen
-execute pathogen#infect()
-
-let mapleader=" "
 
 :nnoremap <leader>w :write<CR>
 :nnoremap <leader>n :new<space>
