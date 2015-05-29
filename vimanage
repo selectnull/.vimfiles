@@ -1,5 +1,7 @@
 original_pwd=`pwd`
 vimfiles_root=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+bundle_root=$vimfiles_root/.vim/bundle
+
 cd $vimfiles_root
 
 function usage {
@@ -8,30 +10,31 @@ function usage {
     echo
     if [ "$1" == "full" ]; then
         echo "    -i plugin-git-url      Installs a plugin"
-        echo "    -u [plugin]            Updates a plugin (or all of them)"
+        echo "    -d plugin              Deletes a plugin"
+        echo "    -l                     Lists installed plugin"
+        echo "    -u                     Updates all plugins"
         echo "    -h                     This help"
         echo
     fi
 }
 
-
 function install_plugin {
     plugin=$1
+    cd $bundle_root
+    git clone $plugin
 }
 
 function update_all_plugins {
-    for d in .vim/bundle/*; do cd $d; git pull; cd $vimfiles_root; done
+    for d in $bundle_root/*; do cd $d; git pull; cd $vimfiles_root; done
 }
 
 # process command line switches
-while getopts "i:uh" opt; do
+while getopts "i:d:luh" opt; do
     case $opt in
-        i)
-            cd .vim/bundle/
-            git clone $OPTARG
-            ;;
-        u)
-            update_all_plugins;;
+        i) install_plugin $OPTARG;;
+        l) ls $bundle_root;;
+        d) rm -rf $bundle_root/$OPTARG;;
+        u) update_all_plugins;;
         h) usage full;;
     esac
 done
