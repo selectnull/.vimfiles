@@ -64,16 +64,17 @@ set shortmess+=I
 
 :imap jk <Esc>
 
-" set colorscheme
-"
-" colorscheme options for gvim
+" colorscheme options
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+let g:molokai_original = 1
+let g:rehash256 = 1
+colorscheme molokai
+" let g:solarized_termcolors=256
+" colorscheme solarized
 
 " CtrlP config
 let g:ctrlp_custom_ignore = {
