@@ -192,10 +192,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-set statusline+=%=      "left/right separator
-set statusline+=%c,     "cursor column
-set statusline+=%l/%L   "cursor line/total lines
-set statusline+=\ %P    "percent through file
+set statusline+=%=          " left/right separator
+set statusline+=%l:%c       " cursor position
+set statusline+=\ \|\       " pipe delimeter
+set statusline+=%P\/%L    " percent through file
+
 set laststatus=2
 
 " file types
