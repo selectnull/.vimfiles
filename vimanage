@@ -1,3 +1,6 @@
+#!/bin/bash
+
+
 original_pwd=`pwd`
 vimfiles_root=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 bundle_root=$vimfiles_root/.vim/bundle
@@ -28,12 +31,26 @@ function update_all_plugins {
     for d in $bundle_root/*; do cd $d; git pull; cd $vimfiles_root; done
 }
 
+function list_plugins {
+    for p in $bundle_root/*; do
+        cd $p
+        git remote -v | grep fetch | cut -f 2 | cut -d ' ' -f 1
+        cd $vimfiles_root
+    done
+}
+
+function delete_plugin {
+    plugin=$1
+    cd $bundle_root
+    rm -rf $plugin
+}
+
 # process command line switches
 while getopts "i:d:luh" opt; do
     case $opt in
         i) install_plugin $OPTARG;;
-        l) ls $bundle_root;;
-        d) rm -rf $bundle_root/$OPTARG;;
+        l) list_plugins;;
+        d) delete_plugin $OPTARG;;
         u) update_all_plugins;;
         h) usage full;;
     esac
