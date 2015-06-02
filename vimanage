@@ -1,14 +1,11 @@
 #!/bin/bash
 
+# pathogen bundle directory
+pathogen_dir=~/.vim/bundle
 
-original_pwd=`pwd`
-vimfiles_root=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-bundle_root=$vimfiles_root/.vim/bundle
-
-cd $vimfiles_root
 
 function usage {
-    echo "manage.sh [-i plugin-git-url] [-u plugin-git-url] [-h]"
+    echo "vimanage [-i plugin-git-url] [-d plugin] [-l] [-u] [-h]"
     echo "manages vim config"
     echo
     if [ "$1" == "full" ]; then
@@ -21,28 +18,71 @@ function usage {
     fi
 }
 
-function install_plugin {
-    plugin=$1
-    cd $bundle_root
-    git clone $plugin
-}
-
-function update_all_plugins {
-    for d in $bundle_root/*; do cd $d; git pull; cd $vimfiles_root; done
-}
-
-function list_plugins {
-    for p in $bundle_root/*; do
-        cd $p
-        git remote -v | grep fetch | cut -f 2 | cut -d ' ' -f 1
-        cd $vimfiles_root
+function foreach_plugin {
+    # iterate thru plugins
+    for plugin in $pathogen_dir/*; do
+        cd $plugin
+        if [ -d "$plugin/.git" ]; then
+            # we check for .git existence on purpose, if we did not git would
+            # fall upwards thru directory tree and report .vimfiles repository
+            echo $plugin
+        fi
     done
 }
 
+function colorize_plugin {
+    # output colors
+    name_color=$(tput setaf 3)
+    url_color=$(tput setaf 4)
+    reset_color=$(tput sgr0)
+
+    echo -e "${name_color}$(plugin_name $plugin) ${url_color}$(plugin_url $plugin) ${reset_color}"
+}
+
+function plugin_name {
+    basename "$1"
+}
+
+function plugin_url {
+    cd "$1"
+    git remote -v | grep fetch | cut -f 2 | cut -d ' ' -f 1
+}
+
+function install_plugin {
+    cd $pathogen_dir
+    git clone $1
+}
+
+function update_plugin {
+    cd "$1"
+    git pull
+}
+
+function update_all_plugins {
+    for plugin in $(foreach_plugin); do
+        echo -e "$(colorize_plugin $plugin)"
+        update_plugin $plugin
+    done
+}
+
+function list_plugins {
+    output=""
+
+    for plugin in $(foreach_plugin); do
+        cd $plugin
+        if [ -t 1 ]; then
+            # set colors only when output is stdout, these will not be set
+            # if output is redirected to file
+            output="$output\n$(colorize_plugin $plugin)"
+        else
+            output="$output\n$(plugin_url $plugin)"
+        fi
+    done
+    echo -e $output | column -t
+}
+
 function delete_plugin {
-    plugin=$1
-    cd $bundle_root
-    rm -rf $plugin
+    rm -rf "$pathogen_dir/$1"
 }
 
 # process command line switches
@@ -57,5 +97,3 @@ while getopts "i:d:luh" opt; do
 done
 
 shift $(($OPTIND - 1))
-
-cd $original_pwd
