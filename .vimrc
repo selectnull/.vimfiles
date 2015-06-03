@@ -51,6 +51,7 @@ endfunction
 :nnoremap <leader>e :edit<space>
 :nnoremap <leader>d :bd<CR>
 :nnoremap <leader>q :quit<CR>
+:nnoremap <leader>a :CtrlSF
 :nnoremap <leader><tab> <C-w><C-w>
 
 :nnoremap <Tab> :bnext<CR>
@@ -77,6 +78,9 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](\.git|\.hg|\.svn|htmlcov|build|_build)$',
     \ 'file': '\v\.(so|pyc)$',
     \ }
+
+" CtrlSF config
+let g:ctrlsf_position = 'below'
 
 " Syntastic config
 let g:syntastic_always_populate_loc_list = 1
