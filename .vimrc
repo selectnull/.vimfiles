@@ -2,10 +2,6 @@ let mapleader=" "
 
 execute pathogen#infect()
 
-" from http://learnvimscriptthehardway.stevelosh.com/chapters/07.html
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-:nnoremap <leader>sv :source $MYVIMRC<cr>
-
 :set guioptions-=T
 :set guioptions-=m
 
