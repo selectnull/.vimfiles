@@ -57,6 +57,9 @@ endfunction
 :nnoremap <Tab> :bnext<CR>
 :nnoremap <S-Tab> :bprevious<CR>
 
+nnoremap <leader>o o<esc>k
+nnoremap <leader>O O<esc>j
+
 set shortmess+=I
 
 :imap jk <Esc>
