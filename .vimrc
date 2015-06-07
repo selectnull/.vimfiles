@@ -46,8 +46,18 @@ endfunction
 
 :filetype plugin on
 
+function SmartSplit()
+    let l:w = winwidth(0)
+    let l:h = winheight(0) * 3
+    if (l:h > l:w)
+        :split
+    else
+        :vsplit
+    endif
+endfunction
+
 :nnoremap <leader>w :write<CR>
-:nnoremap <leader>n :new<space>
+:nnoremap <leader>n :call SmartSplit()<cr>
 :nnoremap <leader>e :edit<space>
 :nnoremap <leader>d :bd<CR>
 :nnoremap <leader>q :quit<CR>
